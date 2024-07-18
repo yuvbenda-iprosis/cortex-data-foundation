@@ -4,7 +4,7 @@
     "deploySFDC": true,
     "deployMarketing": true,
     "turboMode": true,
-    "projectIdSource": "",
+    "projectIdSource": "cortex-dev-01",
     "projectIdTarget": "",
     "targetBucket": "",
     "location": "US",
