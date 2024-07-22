@@ -12,9 +12,9 @@
 	branch = main
 [submodule "src/SFDC"]
 	path = src/SFDC
-	url = https://github.com/yuvbenda-iprosis/cortex-salesforce
+	url = ../cortex-salesforce
 	branch = main
 [submodule "src/marketing"]
 	path = src/marketing
-	url = https://github.com/yuvbenda-iprosis/cortex-marketing
+	url = ../cortex-marketing
 	branch = main
