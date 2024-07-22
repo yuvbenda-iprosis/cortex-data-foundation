@@ -1,14 +1,14 @@
 [submodule "src/SAP/SAP_REPORTING"]
 	path = src/SAP/SAP_REPORTING
-	url = https://github.com/yuvbenda-iprosis/cortex-reporting.git
+	url = ../cortex-reporting
 	branch = main
 [submodule "src/SAP/SAP_ML_MODELS"]
 	path = src/SAP/SAP_ML_MODELS
-	url = https://github.com/yuvbenda-iprosis/cortex-ml-models
+	url = ../cortex-ml-models
 	branch = main
 [submodule "src/SAP/SAP_CDC"]
 	path = src/SAP/SAP_CDC
-	url = https://github.com/yuvbenda-iprosis/cortex-dag-generator
+	url = ../cortex-dag-generator
 	branch = main
 [submodule "src/SFDC"]
 	path = src/SFDC
