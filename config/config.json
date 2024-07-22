@@ -10,13 +10,24 @@
     "targetBucket": "cortex-dev-01-cdf",
     "location": "US",
     "languages": [
-        "E",
-        "S"
+        "E"
     ],
     "currencies": [
         "USD"
     ],
     "testDataProject": "kittycorn-public",
+    "k9": {
+        "datasets": {
+            "processing": "K9_PROCESSING",
+            "reporting": "K9_REPORTING"
+        }
+    },
+    "DataMesh": {
+        "deployDescriptions": true,
+        "deployLakes": false,
+        "deployCatalog": false,
+        "deployACLs": false
+    },
     "SAP": {
         "deployCDC": true,
         "datasets": {
