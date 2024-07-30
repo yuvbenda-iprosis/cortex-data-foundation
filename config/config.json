@@ -4,9 +4,9 @@
     "deploySFDC": false,
     "deployMarketing": false,
     "deployDataMesh": false,
-    "turboMode": true,
+    "turboMode": false,
     "projectIdSource": "cortex-dev-01",
-    "projectIdTarget": "cortex-dev-01",
+    "projectIdTarget": "",
     "targetBucket": "cortex-dev-01-cdf",
     "location": "US",
     "languages": [
