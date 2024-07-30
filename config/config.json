@@ -36,7 +36,7 @@
             "ml": "CORTEX_SAP_ML_MODELS",
             "reporting": "CORTEX_SAP_REPORTING"
         },
-        "SQLFlavor": "ecc",
+        "SQLFlavor": "s4",
         "mandt": "100"
     },
     "shareWithCredly": false,
