@@ -3,7 +3,7 @@
     "deploySAP": true,
     "deploySFDC": false,
     "deployMarketing": false,
-    "deployDataMesh": false,
+    "deployDataMesh": true,
     "turboMode": false,
     "projectIdSource": "cortex-dev-01",
     "projectIdTarget": "",
