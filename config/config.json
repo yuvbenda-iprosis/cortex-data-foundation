@@ -6,7 +6,7 @@
     "deployDataMesh": true,
     "turboMode": false,
     "projectIdSource": "cortex-dev-01",
-    "projectIdTarget": "",
+    "projectIdTarget": "cortex-dev-01",
     "targetBucket": "cortex-dev-01-cdf",
     "location": "US",
     "languages": [

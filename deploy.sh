@@ -20,7 +20,8 @@ set -e
 log_bucket=$1
 echo "Deploying Cortex Data Foundation."
 
-cloud_build_project=$(cat "config/config.json" | python3 -c "import json,sys; print(str(json.load(sys.stdin)['projectIdSource']))" 2>/dev/null || echo "")
+cloud_build_project=$(cat "config/config.json" | python -c "import json,sys; print(str(json.load(sys.stdin)['projectIdSource']))" 2>/dev/null || echo "")
+echo "cloud_build_project: ${cloud_build_project}"  # check project id
 if [[ "${cloud_build_project}" == "" ]]
 then
     echo "ERROR: Cortex Data Foundation is not configured."
@@ -36,7 +37,6 @@ else
     _GCS_BUCKET="${log_bucket}"
 fi
 echo "Using logs bucket ${_GCS_BUCKET}"
-
 set +e
 echo -e "\n\033[0;32m\033[1mPlease wait while Data Foundation is being deployed...\033[0m\n"
 gcloud builds submit --config=cloudbuild.yaml --suppress-logs \
