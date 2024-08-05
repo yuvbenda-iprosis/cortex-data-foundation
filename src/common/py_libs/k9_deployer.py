@@ -230,6 +230,12 @@ def deploy_k9(k9_manifest: dict,
     # For K9 invoked from Materializer, "reporting_settings" section is
     # ignored if it exists.
 
+    # Get the absolute path of the directory where the current script is located
+    current_script_path = Path(__file__).parent.parent.absolute()
+
+    # Construct the absolute path to deploy.sh
+    deploy_sh_path = current_script_path / 'materializer' / 'deploy.sh'
+
     if data_source == "k9" and "reporting_settings" in k9_manifest:
         reporting_settings_file = k9_path.joinpath(
             k9_manifest["reporting_settings"])
@@ -237,7 +243,7 @@ def deploy_k9(k9_manifest: dict,
         logging.info("Executing Materializer for `%s` with `%s`.", k9_id,
                         reporting_settings_file)
         exec_params = [
-            "./src/common/materializer/deploy.sh", "--gcs_logs_bucket",
+            str(deploy_sh_path), "--gcs_logs_bucket",
             logs_bucket, "--gcs_tgt_bucket", target_bucket, "--config_file",
             str(config_file), "--materializer_settings_file",
             str(reporting_settings_file), "--target_type", "Reporting",

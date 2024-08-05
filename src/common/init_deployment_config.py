@@ -213,6 +213,7 @@ def validate_config(
 
     config["deploySAP"] = config.get("deploySAP", False)
     config["deploySFDC"] = config.get("deploySFDC", False)
+    logging.info("deploySFDC: " +  str(config["deploySFDC"]))
     config["deployMarketing"] = config.get("deployMarketing", False)
     config["deployDataMesh"] = config.get("deployDataMesh", False)
     config["testData"] = config.get("testData", False)
@@ -263,9 +264,15 @@ def validate_config(
 
     logging.info("✅ Common configuration is valid.")
 
+
+    # Map config keys to sub_validator paths dynamically
+    filtered_validators = [
+        validator for validator in sub_validators
+        if config.get(f"deploy{validator.split('/')[-1].capitalize()}", False)
+    ]
     # Go over all sub-validator directories,
     # and call validate() in config_validator.py in every directory.
-    for validator in sub_validators:
+    for validator in filtered_validators:
         validator_text = validator if validator else "current repository"
         logging.info("Running config validator in `%s`.", validator_text)
         config = _validate_workload(config,

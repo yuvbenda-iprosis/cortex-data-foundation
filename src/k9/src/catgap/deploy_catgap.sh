@@ -34,8 +34,8 @@ then
     exit 1
 fi
 
-export SOURCE_PROJECT=$(cat ${DF_CONFIG_FILE} | python3 -c "import json,sys; print(str(json.load(sys.stdin)['projectIdSource']))" 2>/dev/null || echo "")
-export TARGET_BUCKET=$(cat ${DF_CONFIG_FILE} | python3 -c "import json,sys; print(str(json.load(sys.stdin)['targetBucket']))" 2>/dev/null || echo "")
+export SOURCE_PROJECT=$(cat ${DF_CONFIG_FILE} | python -c "import json,sys; print(str(json.load(sys.stdin)['projectIdSource']))" 2>/dev/null || echo "")
+export TARGET_BUCKET=$(cat ${DF_CONFIG_FILE} | python -c "import json,sys; print(str(json.load(sys.stdin)['targetBucket']))" 2>/dev/null || echo "")
 if [[ "${SOURCE_PROJECT}" == "" ]]
 then
     echo "ERROR: projectIdSource value in config.json is empty."
