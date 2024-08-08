@@ -22,7 +22,8 @@ steps:
     waitFor: ['init_deploy_config']
     script: |
       #!/usr/bin/env bash
-      chmod +x src/common/materializer/deploy.sh
+      chmod +r+x src/common/materializer/
+      chmod +r+x src/common/materializer/deploy.sh
       export PYTHONPATH=${PYTHONPATH}:src/:.
       python3 src/k9/src/deploy_k9.py \
               --config-file ${_CONFIG_FILE} \
