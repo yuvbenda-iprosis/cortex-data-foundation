@@ -243,7 +243,7 @@ def deploy_k9(k9_manifest: dict,
         logging.info("Executing Materializer for `%s` with `%s`.", k9_id,
                         reporting_settings_file)
         exec_params = [
-            str(deploy_sh_path), "--gcs_logs_bucket",
+            "src/common/materializer/deploy.sh", "--gcs_logs_bucket",
             logs_bucket, "--gcs_tgt_bucket", target_bucket, "--config_file",
             str(config_file), "--materializer_settings_file",
             str(reporting_settings_file), "--target_type", "Reporting",
