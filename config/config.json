@@ -29,7 +29,7 @@
         "deployACLs": false
     },
     "SAP": {
-        "deployCDC": true,
+        "deployCDC": false,
         "datasets": {
             "cdc": "CORTEX_SAP_CDC",
             "raw": "CORTEX_SAP_RAW",
