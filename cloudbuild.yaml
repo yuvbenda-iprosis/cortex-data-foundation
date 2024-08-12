@@ -24,6 +24,10 @@ steps:
       #!/usr/bin/env bash
       chmod +r+x src/common/materializer/
       chmod +r+x src/common/materializer/deploy.sh
+      echo "Listing directory contents of ./src/common/materializer/"
+      ls -l src/common/materializer/
+      apt-get update && apt-get install -y dos2unix
+      dos2unix src/common/materializer/deploy.sh
       export PYTHONPATH=${PYTHONPATH}:src/:.
       python3 src/k9/src/deploy_k9.py \
               --config-file ${_CONFIG_FILE} \

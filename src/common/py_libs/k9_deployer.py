@@ -21,6 +21,7 @@ import subprocess
 import tempfile
 import typing
 import yaml
+import os
 
 from google.cloud import bigquery
 
@@ -230,11 +231,19 @@ def deploy_k9(k9_manifest: dict,
     # For K9 invoked from Materializer, "reporting_settings" section is
     # ignored if it exists.
 
-    # Get the absolute path of the directory where the current script is located
-    current_script_path = Path(__file__).parent.parent.absolute()
-
+    # Get the absolute parent path of the directory where the current script is located
+    parent_script_path = Path(__file__).parent.parent.parent.absolute()
     # Construct the absolute path to deploy.sh
-    deploy_sh_path = current_script_path / 'materializer' / 'deploy.sh'
+    deploy_sh_path = parent_script_path / 'common' / 'materializer' / 'deploy.sh'
+    print("Current working directory:", os.getcwd())
+    print("deploy_sh_path working directory:", deploy_sh_path)
+
+    # Check if deploy.sh exists
+    if deploy_sh_path.exists():
+        print("deploy.sh exists.")
+    else:
+        print("deploy.sh does NOT exist at path:", deploy_sh_path)
+        raise FileNotFoundError(f"deploy.sh not found at path: {deploy_sh_path}")
 
     if data_source == "k9" and "reporting_settings" in k9_manifest:
         reporting_settings_file = k9_path.joinpath(
@@ -243,12 +252,12 @@ def deploy_k9(k9_manifest: dict,
         logging.info("Executing Materializer for `%s` with `%s`.", k9_id,
                         reporting_settings_file)
         exec_params = [
-            "src/common/materializer/deploy.sh", "--gcs_logs_bucket",
+            'bash', str(deploy_sh_path), "--gcs_logs_bucket",
             logs_bucket, "--gcs_tgt_bucket", target_bucket, "--config_file",
             str(config_file), "--materializer_settings_file",
             str(reporting_settings_file), "--target_type", "Reporting",
             "--module_name", "k9"
         ]
-        subprocess.check_call(exec_params)
+        subprocess.check_call(exec_params, cwd=os.getcwd())
 
     logging.info("🐕 k9 `%s` has been deployed! 🐕", k9_id)
