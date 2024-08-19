@@ -2,7 +2,7 @@
 k9s:
   - date_dimension
   - holiday_calendar
-  - sustainability
+  # - sustainability
 
   ## Trends and Weather are disabled by default.
 

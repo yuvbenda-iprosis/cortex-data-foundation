@@ -13,7 +13,8 @@
         "E"
     ],
     "currencies": [
-        "USD"
+        "USD",
+        "ILS"
     ],
     "testDataProject": "kittycorn-public",
     "k9": {
@@ -29,7 +30,7 @@
         "deployACLs": false
     },
     "SAP": {
-        "deployCDC": false,
+        "deployCDC": true,
         "datasets": {
             "cdc": "CORTEX_SAP_CDC",
             "raw": "CORTEX_SAP_RAW",
