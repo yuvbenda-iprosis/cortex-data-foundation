@@ -30,10 +30,12 @@
         "deployACLs": false
     },
     "SAP": {
-        "deployCDC": true,
+        "deployCDC": false,
         "datasets": {
-            "cdc": "CORTEX_SAP_CDC",
+            "cdc": "CORTEX_SAP_RAW",
+            "cdcS4": "CORTEX_SAP_RAW",
             "raw": "CORTEX_SAP_RAW",
+            "rawS4": "CORTEX_SAP_RAW",
             "ml": "CORTEX_SAP_ML_MODELS",
             "reporting": "CORTEX_SAP_REPORTING"
         },
