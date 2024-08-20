@@ -341,6 +341,7 @@ END;
         select_statement=textwrap.indent(sql_str, " " * 4))
 
     logging.debug("Table Refresh SQL = \n%s", table_refresh_sql)
+    logging.info("Table Refresh SQL = \n%s", table_refresh_sql)
 
     return table_refresh_sql
 

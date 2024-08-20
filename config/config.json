@@ -40,7 +40,8 @@
             "reporting": "CORTEX_SAP_REPORTING"
         },
         "SQLFlavor": "s4",
-        "mandt": "100"
+        "mandt": "100",
+        "mandtS4": "100"
     },
     "shareWithCredly": false,
     "userInfo": {
